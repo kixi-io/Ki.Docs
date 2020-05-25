@@ -1,2 +1,2 @@
 # KI Documentation
-Documentation for Ki Libraries and Languages
+[Ki Languages Wiki](wiki)
