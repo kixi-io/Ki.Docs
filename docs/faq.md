@@ -50,7 +50,7 @@ Lets look at a snippet from a configuration file represented in both languages.
 
 **XML**
 
-```XML
+```xml
 <path id="prog.src">
     <pathelement path="${src.dir}" />
     <pathelement path="${res.dir}" />
@@ -64,6 +64,7 @@ Lets look at a snippet from a configuration file represented in both languages.
     </java>
 </target>
 ```
+
 **KD**
 The KD equivalent is shorter, more readable, and type-aware:
 
@@ -137,7 +138,7 @@ The Tag data structure is not thread-safe in any of the official implementations
 
 It is our experience that for most purposes KD doesn't need to be nested as deeply as XML (because of the value lists, anonymous tags, list and map literals, etc.) If you need deeply nested KD tags you can add a simple comment to the close bracket to avoid confusion.
 
-```
+```kd
 tag1 {
     tag2 {
         tag3 {
