@@ -68,7 +68,7 @@ Lets look at a snippet from a configuration file represented in both languages.
 **KD**
 The KD equivalent is shorter, more readable, and type-aware:
 
-``` 
+```text
 path prog.src elements=["${src.dir}" "${res.dir}" "${external.src.dir}"]
 
 target prog.tests depends=prog.build echo=true {
@@ -138,7 +138,7 @@ The Tag data structure is not thread-safe in any of the official implementations
 
 It is our experience that for most purposes KD doesn't need to be nested as deeply as XML (because of the value lists, anonymous tags, list and map literals, etc.) If you need deeply nested KD tags you can add a simple comment to the close bracket to avoid confusion.
 
-```kd
+```text
 tag1 {
     tag2 {
         tag3 {
@@ -167,7 +167,7 @@ We are trying to keep KD simple by including only very commonly needed literal t
 
 If it is listed in the references section of the [Language Guide](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Data-(KD)#References), then yes, we have heard of it. Similar declarative languages like YAML met some but not all of our design goals. YAML code such as:
 
-```YAML
+```yaml
 !!map {
   ? !!str "---"
   : !!str "foo",
