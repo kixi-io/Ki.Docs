@@ -6,6 +6,18 @@ plugins:
 title: Kixi Docs
 description: Kixi documentation site.
 nav_external_links:
+  - title: Kixi GitHub
+    url: https://github.com/kixi-io
+    hide_icon: false
+    opens_in_new_tab: true
+  - title: KD-JVM Repo
+    url: https://github.com/kixi-io/Ki.KD-JVM
+    hide_icon: false
+    opens_in_new_tab: true
+  - title: Core-JVM Repo
+    url: https://github.com/kixi-io/Ki.Core-JVM
+    hide_icon: false
+    opens_in_new_tab: true
   - title: Issue Tracker
     url: https://github.com/kixi-io/Ki.Docs/issues
     hide_icon: false
