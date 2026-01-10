@@ -5,7 +5,7 @@ nav_order: 5
 
 # KD Schema
 
-![KD Schema Diagram](https://github.com/kixi-io/Ki.Docs/blob/master/KD_Schema_Diagram.png)
+![KD Schema Diagram](https://raw.githubusercontent.com/kixi-io/Ki.Docs/refs/heads/master/KD_Schema_Diagram.png)
 
 ## Introduction
 KD Schema (KDS) defines KD document structures. It is simple to express and easy to
