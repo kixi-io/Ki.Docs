@@ -1,6 +1,6 @@
 ---
-title: Ki Docs
-nav_order: 1
+title: KD Docs
+nav_order: 2
 ---
 
 # Ki Data (KD)
