@@ -1,6 +1,7 @@
 remote_theme: just-the-docs/just-the-docs@v0.11.1
 plugins:
 - jekyll-remote-theme
+- jekyll-emoji
 
 title: Kixi Docs
 description: Kixi documentation site.
