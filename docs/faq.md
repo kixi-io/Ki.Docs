@@ -5,6 +5,9 @@ nav_order: 3
 
 # FAQ
 
+* TOC
+{:toc}
+
 ## Q: Is KD a replacement for JSON?
 
 It is a better option for certain purposes. JSON has many advantages. It's simple, easy to learn, easy to parse, widely adopted and available on every platform that has a JavaScript parser because it is a perfect subset of the language. In many cases it is good choice as a lingua franca data description language. That being said, KD has a number of advantages for scientific apps, finance apps, rules engines and other domains that require intricate data structures, benefit from easy expression of higher level types, or need stronger type validation.
