@@ -35,7 +35,7 @@ KD has native support for 27 literal types that JSON must encode as strings:
 
 ### 2. Document Structure
 
-```kd
+```text
 # KD: Named tags with namespaces and annotations
 @deprecated
 @since(2.0)
@@ -72,7 +72,7 @@ ui:button name="Submit" enabled=true {
 
 **Example - Configuration file:**
 
-```kd
+```text
 # KD Configuration
 server {
     host "localhost"
@@ -107,7 +107,7 @@ server {
 
 KD supports modular document composition:
 
-```kd
+```text
 # main.kd
 app {
     .snip(shared/database)        # Include entire file
@@ -127,7 +127,7 @@ Features:
 
 ### 5. Type Safety & Precision
 
-```kd
+```text
 # Explicit numeric types
 count 100        # Int (default)
 bigCount 100L    # Long
@@ -258,7 +258,7 @@ Note: KD.Light is underway. It will address the issues mentioned above when a le
 
 ## References
 
-- [KD Specification](Ki-Data-%28KD%29)
+- [KD Specification](ki-data.md)
 - [KD Repos](https://github.com/kixi-io)
 - [JSON Specification (RFC 8259)](https://tools.ietf.org/html/rfc8259)
 - [JSON Schema](https://json-schema.org/)

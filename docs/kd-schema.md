@@ -65,7 +65,7 @@ Customers {
 }
 ```
 ## Types & Unit Axes
-KD Schema allows you to constrain a type by providing a [KTS Type](Ki-Types), SI Unit Axis
+KD Schema allows you to constrain a type by providing a [KTS Type](ki-types.md), SI Unit Axis
 or default value. For default values the type is inferred.
 
 **Examples**

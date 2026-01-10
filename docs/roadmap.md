@@ -7,8 +7,10 @@ nav_order: 8
 
 KD-JVM 2.2.0 was released on Jan 2nd, 2026. It's feature complete. We've begun work on KD Schema. 
 
-# TODO List
+## TODO List
+
 **_Rougly by Priority_**
+
 1. IDE support for IntelliJ IDEA (done)
 1. KD-Swift
 1. IDE support for Xcode
