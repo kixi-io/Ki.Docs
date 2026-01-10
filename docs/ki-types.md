@@ -7,8 +7,8 @@ nav_order: 4
 
 ## Introduction
 
-The Ki Type System (KTS) defines portable types used by [Ki Declarative (KD)](Ki-Data-(KD)), including
-[KD Schema](KD-Schema), and other Ki libraries. It is a modern type system with nullable and non-nullable types,
+The Ki Type System (KTS) defines portable types used by [Ki Declarative (KD)](ki-data.md), including
+[KD Schema](kd-schema.md), and other Ki libraries. It is a modern type system with nullable and non-nullable types,
 generics and units of measure. KTS was modeled after type systems in languages such as Kotlin, Swift and C#.
 
 KTS currently supports 27 literal types including data structures with type parameters:
@@ -91,7 +91,7 @@ accuracy.
 | KiTZDateTime | A DateTime with a named time zone (see below)|
 
 _Note: A time-of-day that isn't attached to a date can be represented by using a
-[Duration](#Duration) treated as an offset from midnight._
+[Duration](#duration) treated as an offset from midnight._
 
 <a name="Date"></a>
 ### Date
@@ -116,7 +116,7 @@ The canonical representation is year/month/day. Examples:
 <a name="ZonedDateTime"></a>
 ### ZonedDateTime
 `ZonedDateTime` literals specify a date, time and zone. Zones can be specified with -Z,
--UTC, [+/-]offset, or -[KiTZ](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Time-Zone-Specification):
+-UTC, [+/-]offset, or -[KiTZ](ki-time-zones.md):
 
     Canonical Form: yyyy/mm/dd @hh:mm(:ss(.fractional)?)?(-Z | [+/-]offset)
 
@@ -129,7 +129,7 @@ The canonical representation is year/month/day. Examples:
 
 <a name="KiTZDateTime"></a>
 ### KiTZDateTime
-KiTZDateTime literals specify a date, time and KiTZ (named time zone). Zones can be specified with -[KiTZ](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Time-Zone-Specification):
+KiTZDateTime literals specify a date, time and KiTZ (named time zone). Zones can be specified with -[KiTZ](ki-time-zones.md):
 
     Format: yyyy/mm/dd @hh:mm(:ss(.fractional)?)-KiTZ
 
@@ -147,6 +147,7 @@ are useful for expressing the duration of an event, intervals, or chronological 
 from a reference point.
 
 #### Canonical Form Examples
+
 | Example                   | Description                                               |
 | ------------------------- | --------------------------------------------------------- |
 | 03:00:00                  | 3 hours |
@@ -166,6 +167,7 @@ positive integers.
     Format: `major('.'minor('.'micro)?)?('-'qualifier(('-')?qualiferNumber)?)?`
 
 #### Version Components
+
 | Component | Role | Description |
 | --------- | ---- |----------- |
 | major | Major feature release, possible breaking changes | positive integer |
@@ -200,6 +202,7 @@ GeoPoint represents geographic coordinates (GPS location) on Earth. It stores la
 - **Altitude**: Optional, in meters above WGS84 ellipsoid
 
 #### GeoPoint Examples
+
 | Example | Description |
 | ------- | ----------- |
 | .geo(37.7749, -122.4194) | San Francisco (latitude, longitude) |
@@ -369,76 +372,84 @@ We also improved the exception handling and classes. Finally, we ensured there a
 
 ---
 
- A Snip is a reference to an external KD document that gets expanded inline during parsing.
- 
- Snips enable modular KD documents by allowing one document to include content from another.
- When a KD document containing a snip is parsed, the referenced file is loaded and its
- root tag is inserted in place of the snip.
- 
- ## Ki Literal Format
- ```
- .snip(path/to/file)              # Relative path (auto-appends .kd)
- .snip(../components/button)      # Parent directory reference
- .snip("path with spaces/file")   # Quoted for special characters
- .snip(config.yaml)               # Explicit extension (no .kd added)
- .snip(https://example.com/comp)  # URL reference
- .snip(../toggles, expand=true)   # Insert only children of root tag
- ```
- 
- ## Path Resolution
- - Paths are always relative to the containing KD file
- - Use forward slashes (`/`) regardless of platform
- - The `.kd` extension is auto-appended if no extension is present
- - Absolute paths are supported but may pose security risks
- 
- ## Unquoted Path Characters
- Unquoted paths may only contain:
- - Alphanumeric characters (a-z, A-Z, 0-9)
- - Forward slash (`/`)
- - Hyphen (`-`)
- - Underscore (`_`)
- - Period (`.`)
- - Colon (`:`) - for URL schemes like `https://`
- 
- Paths containing spaces, parentheses, or other special characters must be quoted.
- 
- ## Expand Mode
- By default, the entire root tag from the snipped file is inserted. With `expand=true`,
- only the children of the root tag are inserted (the root tag itself is discarded).
- 
- ## Example
- **File: main.kd**
- ```
- app {
-     header {
-         .snip(components/navbar)
-     }
-     content {
-         .snip(pages/home, expand=true)
-     }
- }
- ```
- 
- **File: components/navbar.kd**
- ```
- navbar {
-     logo "MyApp"
-     menu { item "Home"; item "About" }
- }
- ```
- 
- **Result after expansion:**
- ```
- app {
-     header {
-         navbar {
-             logo "MyApp"
-             menu { item "Home"; item "About" }
-         }
-     }
-     content {
-         # Children of pages/home.kd root inserted here
-     }
- }
- ```
+A Snip is a reference to an external KD document that gets expanded inline during parsing.
+
+Snips enable modular KD documents by allowing one document to include content from another.
+When a KD document containing a snip is parsed, the referenced file is loaded and its
+root tag is inserted in place of the snip.
+
+## Ki Literal Format
+
+```
+.snip(path/to/file)              # Relative path (auto-appends .kd)
+.snip(../components/button)      # Parent directory reference
+.snip("path with spaces/file")   # Quoted for special characters
+.snip(config.yaml)               # Explicit extension (no .kd added)
+.snip(https://example.com/comp)  # URL reference
+.snip(../toggles, expand=true)   # Insert only children of root tag
+```
+
+## Path Resolution
+
+- Paths are always relative to the containing KD file
+- Use forward slashes (`/`) regardless of platform
+- The `.kd` extension is auto-appended if no extension is present
+- Absolute paths are supported but may pose security risks
+
+## Unquoted Path Characters
+
+Unquoted paths may only contain:
+- Alphanumeric characters (a-z, A-Z, 0-9)
+- Forward slash (`/`)
+- Hyphen (`-`)
+- Underscore (`_`)
+- Period (`.`)
+- Colon (`:`) - for URL schemes like `https://`
+
+Paths containing spaces, parentheses, or other special characters must be quoted.
+
+## Expand Mode
+
+By default, the entire root tag from the snipped file is inserted. With `expand=true`,
+only the children of the root tag are inserted (the root tag itself is discarded).
+
+## Example
+
+**File: main.kd**
+
+```
+app {
+    header {
+        .snip(components/navbar)
+    }
+    content {
+        .snip(pages/home, expand=true)
+    }
+}
+```
+
+**File: components/navbar.kd**
+
+```
+navbar {
+    logo "MyApp"
+    menu { item "Home"; item "About" }
+}
+```
+
+**Result after expansion:**
+
+```
+app {
+    header {
+        navbar {
+            logo "MyApp"
+            menu { item "Home"; item "About" }
+        }
+    }
+    content {
+        # Children of pages/home.kd root inserted here
+    }
+}
+```
 
