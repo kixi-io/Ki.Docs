@@ -10,22 +10,22 @@ nav_order: 2
 <img align="right" src="https://avatars2.githubusercontent.com/u/60582888?s=88&v=4" alt="Ki Logo">Ki Data (KD) is a
 simple and concise declarative language used to describe typed values, ranges, lists, maps, trees and
 grids. Although XML is an excellent format for marking up documents and embedding tags in free-form text, it can be
-cumbersome for expressing basic data structures. KD is designed to be readable at a glance. See the [FAQ](FAQ) for a
+cumbersome for expressing basic data structures. KD is designed to be readable at a glance. See the [FAQ](faq.md) for a
 comparison of KD to other declarative languages. 
 
 KD is ideal for uses ranging from build files and object serialization to UI layouts and automation scripts. Its
-[modern type system](Ki-Types), [schema](kd-schema), support for [quantities with SI units](#Quantity), and high 
+[modern type system](ki-types.md), [schema](kd-schema.md), support for [quantities with SI units](#Quantity), and high 
 precision decimal type make it well suited for apps in areas such as finance and STEM. In addition to data structures, KD
 provides portable higher order types for URLs, versions, dates, times, email addresses, durations, quantities with units, ranges, 
 optionally typed grids, coordinates, geographic coordinates, and binary data.
 
 **KD Tag**
 
-![Anatomy of a Tag](https://github.com/kixi-io/Ki.Docs/blob/master/KD_Diagram.png)
+![Anatomy of a Tag](https://raw.githubusercontent.com/kixi-io/Ki.Docs/refs/heads/master/KD_Diagram.png)
 
 **Examples**
 
-![Anatomy of a Tag](https://github.com/kixi-io/Ki.Docs/blob/master/KD_Intellij_Plugin.png)
+![Anatomy of a Tag](https://raw.githubusercontent.com/kixi-io/Ki.Docs/refs/heads/master/KD_Intellij_Plugin.png)
 
 ```
 @Personal // I'm an annotation
@@ -62,7 +62,7 @@ Newlines are significant in KD. Other whitespace is ignored. You can force a new
 escape the end of a line with a backslash (\\) to continue the tag definition on the next line.
 
 ### Ki Type System (KTS)
-KD uses the portable [Ki Type System](Ki-Types), which it shares with Ki Markup and Ki Script. In the example above the 
+KD uses the portable [Ki Type System](ki-types.md), which it shares with Ki Markup and Ki Script. In the example above the 
 value of the "published" attribute is a date object, not a string. Ki's intuitive API is available for supported 
 platforms.
 
@@ -237,7 +237,7 @@ KD supports 27 literal types, some of which have variants. They are:
 
 _<sup>*</sup>For platforms that do not support this level of precision the implementation should provide a conformant number type._
 
-> :bulb: See [Ki Types](Ki-Types) for more details on the type system including super types
+> :bulb: See [Ki Types](ki-types.md) for more details on the type system including super types
 
 <a name="String"></a>
 ### String
@@ -307,7 +307,7 @@ never set, and is to be considered relative to the time and place of the reader.
 <a name="ZonedDateTime"></a>
 #### ZonedDateTime
 ZonedDateTime literals specify a date, time and zone offset. Zones can be specified with -Z, -UTC,
-[+/-]offset, or -[KiTZ](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Time-Zone-Specification):
+[+/-]offset, or -[KiTZ](ki-time-zones.md):
 
     Format: yyyy/mm/dd @hh:mm(:ss(.fractional)?)?(-Z | -UTC | [+/-]offset | -KiTZ)
 
@@ -327,7 +327,7 @@ ZonedDateTime literals specify a date, time and zone offset. Zones can be specif
 
 <a name="KiTZDateTime"></a>
 #### KiTZDateTime
-KiTZDateTime literals specify a date, time and KiTZ (named time zone). Zones can be specified with -[KiTZ](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Time-Zone-Specification):
+KiTZDateTime literals specify a date, time and KiTZ (named time zone). Zones can be specified with -[KiTZ](ki-time-zones.md):
 
     Format: yyyy/mm/dd @hh:mm(:ss(.fractional)?)-KiTZ
 
@@ -372,7 +372,7 @@ KiTZ provides a standardized set of timezone identifiers using the format `CC/TZ
 | NZ/NZST | New Zealand | +12:00 | New Zealand Standard Time |
 | NZ/NZDT | New Zealand | +13:00 | New Zealand Daylight Time |
 
-KiTZ supports over 200 timezone identifiers covering all major countries and their regional time zones. See the [Ki Time Zone Specification](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Time-Zone-Specification) for the complete list.
+KiTZ supports over 200 timezone identifiers covering all major countries and their regional time zones. See the [Ki Time Zone Specification](ki-time-zones.md) for the complete list.
 
 ##### KiTZDateTime
 
@@ -402,8 +402,8 @@ Ki Duration literals represent a length of time (which may be negative.) Duratio
 duration of an event, intervals, or chronological distances from a reference point.
 
 #### Examples: Duration Literals
-| Example                   | Description                                               |
-| ------------------------- | --------------------------------------------------------- |
+| Example | Description |
+| ------- | ----------- |
 | 03:00:00 or 3h            | 3 hours |
 | 00:12:00 or 12min         | 12 minutes |
 | 00:00:42 or 42s           | 42 seconds | 
@@ -437,7 +437,7 @@ must be zero or positive integers.
 
 #### Version Components
 | Component | Role | Description |
-| --------- | ---- |----------- |
+| --------- | ---- | ----------- |
 | major | Major feature release, possible breaking changes | positive integer |
 | minor | Minor feature release, no breaking changes | positive integer |
 | micro | Bug fixes and performance enhancement | positive integer |
@@ -1342,78 +1342,79 @@ We also improved the exception handling and classes. Finally, we ensured there a
 
 ---
 
- A Snip is a reference to an external KD document that gets expanded inline during parsing.
+A Snip is a reference to an external KD document that gets expanded inline during parsing.
+
+Snips enable modular KD documents by allowing one document to include content from another.
+When a KD document containing a snip is parsed, the referenced file is loaded and its
+root tag is inserted in place of the snip.
  
- Snips enable modular KD documents by allowing one document to include content from another.
- When a KD document containing a snip is parsed, the referenced file is loaded and its
- root tag is inserted in place of the snip.
- 
- ## Ki Literal Format
- ```
- .snip(path/to/file)              # Relative path (auto-appends .kd)
- .snip(../components/button)      # Parent directory reference
- .snip("path with spaces/file")   # Quoted for special characters
- .snip(config.yaml)               # Explicit extension (no .kd added)
- .snip(https://example.com/comp)  # URL reference
- .snip(../toggles, expand=true)   # Insert only children of root tag
- ```
- 
- ## Path Resolution
- - Paths are always relative to the containing KD file
- - Use forward slashes (`/`) regardless of platform
- - The `.kd` extension is auto-appended if no extension is present
- - Absolute paths are supported but may pose security risks
- 
- ## Unquoted Path Characters
- Unquoted paths may only contain:
- - Alphanumeric characters (a-z, A-Z, 0-9)
- - Forward slash (`/`)
- - Hyphen (`-`)
- - Underscore (`_`)
- - Period (`.`)
- - Colon (`:`) - for URL schemes like `https://`
- 
- Paths containing spaces, parentheses, or other special characters must be quoted.
- 
- ## Expand Mode
- By default, the entire root tag from the snipped file is inserted. With `expand=true`,
- only the children of the root tag are inserted (the root tag itself is discarded).
- 
- ## Example
- **File: main.kd**
- ```
- app {
-     header {
-         .snip(components/navbar)
-     }
-     content {
-         .snip(pages/home, expand=true)
-     }
- }
- ```
- 
- **File: components/navbar.kd**
- ```
- navbar {
-     logo "MyApp"
-     menu { item "Home"; item "About" }
- }
- ```
- 
- **Result after expansion:**
- ```
- app {
-     header {
-         navbar {
-             logo "MyApp"
-             menu { item "Home"; item "About" }
-         }
-     }
-     content {
-         # Children of pages/home.kd root inserted here
-     }
- }
- ```
+## Ki Literal Format
+
+```
+.snip(path/to/file)              # Relative path (auto-appends .kd)
+.snip(../components/button)      # Parent directory reference
+.snip("path with spaces/file")   # Quoted for special characters
+.snip(config.yaml)               # Explicit extension (no .kd added)
+.snip(https://example.com/comp)  # URL reference
+.snip(../toggles, expand=true)   # Insert only children of root tag
+```
+
+## Path Resolution
+- Paths are always relative to the containing KD file
+- Use forward slashes (`/`) regardless of platform
+- The `.kd` extension is auto-appended if no extension is present
+- Absolute paths are supported but may pose security risks
+
+## Unquoted Path Characters
+Unquoted paths may only contain:
+- Alphanumeric characters (a-z, A-Z, 0-9)
+- Forward slash (`/`)
+- Hyphen (`-`)
+- Underscore (`_`)
+- Period (`.`)
+- Colon (`:`) - for URL schemes like `https://`
+
+Paths containing spaces, parentheses, or other special characters must be quoted.
+
+## Expand Mode
+By default, the entire root tag from the snipped file is inserted. With `expand=true`,
+only the children of the root tag are inserted (the root tag itself is discarded).
+
+## Example
+**File: main.kd**
+```
+app {
+    header {
+        .snip(components/navbar)
+    }
+    content {
+        .snip(pages/home, expand=true)
+    }
+}
+```
+
+**File: components/navbar.kd**
+```
+navbar {
+    logo "MyApp"
+    menu { item "Home"; item "About" }
+}
+```
+
+**Result after expansion:**
+```
+app {
+    header {
+        navbar {
+            logo "MyApp"
+            menu { item "Home"; item "About" }
+        }
+    }
+    content {
+        # Children of pages/home.kd root inserted here
+    }
+}
+```
 
 ## Comments
 
@@ -1534,12 +1535,13 @@ implementation](../../Ki.KD-Swift) is in beta and work has started on Go lang.
 The following languages were researched during the development of KD for the purpose of defining base types and literal formats:
 
 | Declarative Languages | General Purpose | 
-| --------------------- | --------------------------- |
+| --------------------- | --------------- |
 | [XML](http://www.w3.org/XML/) | [Swift](https://swift.org/documentation/) |
 | [JSON](http://www.json.org/) | [Kotlin](https://kotlinlang.org/) |
 | [RDF](http://www.w3.org/RDF/) | [Java](https://docs.oracle.com/javase/specs/jls/se14/html/index.html) |
-| [PYX](http://www.xml.com/pub/a/2000/03/15/feature/index.html) (link from Pat Niemeyer) | [C#](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/) | [Python](http://www.python.org/) |
-| [YAML](http://www.yaml.org/) | [Ruby](http://www.ruby-lang.org/en/) |
-| [OGML](http://wwwhome.cs.utwente.nl/~laarman/ogml/) | [TypeScript](https://www.typescriptlang.org/) |
-| [SDL](https://sdlang.org/) (KD's predecessor) | [Dart](https://dart.dev/) |
+| [PYX](http://www.xml.com/pub/a/2000/03/15/feature/index.html) (link from Pat Niemeyer) | [C#](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/) |
+| [YAML](http://www.yaml.org/) | [Python](http://www.python.org/) |
+| [OGML](http://wwwhome.cs.utwente.nl/~laarman/ogml/) | [Ruby](http://www.ruby-lang.org/en/) |
+| [SDL](https://sdlang.org/) (KD's predecessor) | [TypeScript](https://www.typescriptlang.org/) |
+| | [Dart](https://dart.dev/) |
 | | [Go](https://golang.org/) |
