@@ -1,0 +1,12 @@
+remote_theme: just-the-docs/just-the-docs@v0.11.1
+plugins:
+- jekyll-remote-theme
+
+title: Kixi Docs
+description: Kixi documentation site.
+nav_external_links:
+  - title: Issue Tracker
+    url: https://github.com/kixi-io/Ki.Docs/issues
+    hide_icon: false
+    opens_in_new_tab: true
+color_scheme: wider
