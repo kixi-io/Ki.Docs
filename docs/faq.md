@@ -33,14 +33,14 @@ a Ki Range type or map to a suitable existing type if one is available.
 
 Additional advantages include:
 1. Higher order portable types such as Range, Date, LocalDateTime, ZonedDateTime, Duration, Version, List and Map
-2. A [modern type system](ki-types) with support for nullable and non-nullable types, generics and validators
-3. Sophisticated, easy to use [schema](kd-schema)
-4. Support for [Quantities](Ki-Data-(KD)) with SI Units of Measure
+2. A [modern type system](ki-types.md) with support for nullable and non-nullable types, generics and validators
+3. Sophisticated, easy to use [schema](kd-schema.md)
+4. Support for [Quantities](ki-data.md#quantity) with SI Units of Measure
 5. Stronger validation: The parser maps literals to 20 types, each with their own validators.
 6. Higher precision numbers: Ki's Decimal type is 128 bits. This is often necessary in financial and scientific domains.
 7. XML-style namespaces
 
-For more details and advice on when to use KD or JSON: [KD vs JSON](KD-vs-JSON-Comparison)
+For more details and advice on when to use KD or JSON: [KD vs JSON](kd-or-json.md)
 
 ## Q: Is KD a replacement for XML?
 
@@ -87,7 +87,7 @@ has its own format, but it also supports ISO-8601 representations.
 
 ### Zoned Date/Time
 
-| [**ISO-8601**](https://en.wikipedia.org/wiki/ISO_8601) | [**KD**](Ki-Data-(KD)#Duration) |
+| [**ISO-8601**](https://en.wikipedia.org/wiki/ISO_8601) | [**KD**](ki-data.md#duration) |
 | --- | --- |
 | 2021-05-21T05:30:15Z | 2021/5/21 @5:30:15-Z |
 | 2021-05-21T05:30:15-08:00 | 2021/5/21 @5:30-8 |
@@ -97,13 +97,13 @@ Notes:
 1. Ki ZonedDateTime's can also optionally include zero padding.
 2. The space between date and time is optional.
 3. Ki DateTime types have nanosecond resolution.
-4. Ki ZoneIDs can be specified by offsets or short common names called [KiTZ](Ki-Time-Zone-Specification), which are unambiguous thanks to the inclusion of a country code.
+4. Ki ZoneIDs can be specified by offsets or short common names called [KiTZ](ki-time-zones.md), which are unambiguous thanks to the inclusion of a country code.
 
 ### Duration
 
-| [**ISO-8601**](https://en.wikipedia.org/wiki/ISO_8601) | [**KD**]((../../Ki.Core-JVM/)) |
+| [**ISO-8601**](https://en.wikipedia.org/wiki/ISO_8601) | [**KD**](https://github.com/kixi-io/Ki.Docs/wiki/Ki.Core-JVM/) |
 | --- | --- |
-| PT5H | 5h|
+| PT5H | 5h |
 | PT29H30M15.412S | 1day:5:30:15.412 |
 
 Note: 
@@ -128,8 +128,8 @@ KD-.NET requires C# 5.0. There are currently no plans to provide support for ear
 
 | Library | Description | Issues | Discussion |
 | ------- | ----------- | ------ | ---------- |
-| [KD](../../Ki.KD-JVM) | The KD language and library | [Issues](../../Ki.KD-JVM/issues) | [Discussions](https://github.com/orgs/kixi-io/discussions) |
-| [Core](../../Ki.Core-JVM) | Ki.Types &amp; utilities | [Issues](../../Ki.Core-JVM/issues) | [Discussions](https://github.com/orgs/kixi-io/discussions) |
+| [KD](https://github.com/kixi-io/Ki.KD-JVM) | The KD language and library | [Issues](https://github.com/kixi-io/Ki.KD-JVM/issues) | [Discussions](https://github.com/orgs/kixi-io/discussions) |
+| [Core](https://github.com/kixi-io/Ki.Core-JVM) | Ki.Types &amp; utilities | [Issues](https://github.com/kixi-io/Ki.Core-JVM/issues) | [Discussions](https://github.com/orgs/kixi-io/discussions) |
 
 Bugs and feature requests can be posted directly to [GitHub Issues](https://github.com/kixi-io/Ki.Docs/issues).
 
@@ -164,11 +164,11 @@ We are trying to keep KD simple by including only very commonly needed literal t
 
 ## Q: How mature is KD? 
 
-[KD for the JVM (Kotlin, Java, etc.)](../../Ki.KD-JVM) is in beta as of August, 2020. SDL, KD's predecessor, was released in 2005. It is in use on a number of large projects ranging from open source frameworks to systems developed for global investment banks. The project is actively maintained by multiple contributors.
+[KD for the JVM (Kotlin, Java, etc.)](https://github.com/kixi-io/Ki.KD-JVM) is in beta as of August, 2020. SDL, KD's predecessor, was released in 2005. It is in use on a number of large projects ranging from open source frameworks to systems developed for global investment banks. The project is actively maintained by multiple contributors.
 
 ## Q: Have you heard of \<insert related language\>? Why wasn't it good enough?
 
-If it is listed in the references section of the [Language Guide](https://github.com/kixi-io/Ki.Docs/wiki/Ki-Data-(KD)#References), then yes, we have heard of it. Similar declarative languages like YAML met some but not all of our design goals. YAML code such as:
+If it is listed in the references section of the [Language Guide](ki-data.md#references), then yes, we have heard of it. Similar declarative languages like YAML met some but not all of our design goals. YAML code such as:
 
 ```yaml
 !!map {
