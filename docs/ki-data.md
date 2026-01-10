@@ -254,6 +254,7 @@ There are four types of Strings in KD. They are:
 :bulb: Notes
 1. The white space prefix of lines in Block and BlockRaw is truncated if it matches the white space before the closing quotes ("""). Example:
 2. Backquotes were previously allowed as literal strings. That is no longer the case. As of KD v2, backquotes will be used for regular expressions.  
+
 ```
 myTag text="""
     ABC
@@ -263,6 +264,7 @@ myTag text="""
 ```
 
 The String block for "myTag" will remove two spaces from the beginning of each line and produce the string:
+
 ```
 """
 ABC
@@ -270,6 +272,7 @@ ABC
 123
 """
 ```
+
 The leading quote mark's location is disregarded, and may appear on the same line as the attribute or below. This behavior is identical to [Swift's multi-line String literals](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html).
 
 <a name="DateTime"></a>
@@ -402,6 +405,7 @@ Ki Duration literals represent a length of time (which may be negative.) Duratio
 duration of an event, intervals, or chronological distances from a reference point.
 
 #### Examples: Duration Literals
+
 | Example | Description |
 | ------- | ----------- |
 | 03:00:00 or 3h            | 3 hours |
@@ -436,6 +440,7 @@ must be zero or positive integers.
     Format: `major('.'minor('.'micro)?)?('-'qualifier(('-')?qualiferNumber)?)?`
 
 #### Version Components
+
 | Component | Role | Description |
 | --------- | ---- | ----------- |
 | major | Major feature release, possible breaking changes | positive integer |
@@ -490,6 +495,7 @@ GeoPoint represents geographic coordinates (GPS location) on Earth. It stores la
 - **Altitude**: Optional, in meters above WGS84 ellipsoid
 
 #### GeoPoint Examples
+
 | Example | Description |
 | ------- | ----------- |
 | .geo(37.7749, -122.4194) | San Francisco (latitude, longitude) |
@@ -1061,6 +1067,7 @@ this behavior by adding a :i, :L, :d or :f suffix after the unit type for
 Int, Long, Double or Float.
 
 #### Basic Quantity Examples
+
 | Example | Description |
 | ------- | ----------- |
 | 23cm | 23 centimeters (Dec) |
@@ -1109,6 +1116,7 @@ Both styles can be combined with type specifiers:
 #### Supported Units
 
 **Length Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | nm | nanometer | 10⁻⁹ m |
@@ -1120,6 +1128,7 @@ Both styles can be combined with type specifiers:
 | km | kilometer | 10³ m |
 
 **Area Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | nm², nm2 | square nanometer | 10⁻¹⁸ m² |
@@ -1129,6 +1138,7 @@ Both styles can be combined with type specifiers:
 | km², km2 | square kilometer | 10⁶ m² |
 
 **Volume Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | nm³, nm3 | cubic nanometer | 10⁻²⁷ m³ |
@@ -1140,6 +1150,7 @@ Both styles can be combined with type specifiers:
 | ℓ, LT | liter | 10⁻³ m³ |
 
 **Mass Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | ng | nanogram | 10⁻⁹ g |
@@ -1149,12 +1160,14 @@ Both styles can be combined with type specifiers:
 | kg | kilogram | 10³ g (base for SI) |
 
 **Temperature Units**
+
 | Symbol | Name | Offset |
 | ------ | ---- | ------ |
 | K | Kelvin | 0 (base) |
 | °C, dC | Celsius | 273.15 |
 
 **Time Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | s | second | 1 (base) |
@@ -1163,17 +1176,20 @@ Both styles can be combined with type specifiers:
 | day | day | 86400 s |
 
 **Speed Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | kph | kilometers per hour | 1 (base) |
 | mps | meters per second | 0.277778 kph |
 
 **Density Units**
+
 | Symbol | Name | Factor |
 | ------ | ---- | ------ |
 | kgpm³, kgpm3 | kg per cubic meter | 1 (base) |
 
 **Other Units**
+
 | Symbol | Name | Description |
 | ------ | ---- | ----------- |
 | mol | mole | Substance amount |
@@ -1270,6 +1286,7 @@ KTS `Blob` literals are base64 encodings of byte arrays. KD supports both standa
     Format: .blob(encoding_chars)
 
 #### Base64 Variants
+
 | Variant | Characters | Usage |
 | ------- | ---------- | ----- |
 | Standard | A-Z, a-z, 0-9, +, / | Default output format |
