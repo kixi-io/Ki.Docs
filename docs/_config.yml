@@ -3,7 +3,11 @@ plugins:
 - jekyll-remote-theme
 - jemoji
 
-markdown: GFM
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 title: Kixi Docs
 description: Kixi documentation site.
