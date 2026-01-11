@@ -225,8 +225,8 @@ KD supports 27 literal types, some of which have variants. They are:
 | Blob | Bytes encoded in base64 | .blob(sdf789GSfsb2+3324sf2) | See [Blob](#Blob) |
 | GeoPoint | GPS coordinates | .geo(37.7749, -122.4194) | See [GeoPoint](#GeoPoint) |
 | Email | Email address | kai@rockets.com, foo.noa@reptilezoo.org | |
-| Grid<T\> | 2D Grid | .grid(1 2 3; 40 50 60), .grid\<Int\>(3 6 9) | See [Grid](#Grid) |
-| Coordinate | Grid location | .coordinate(x=2, y=5), .coordinate(c="A", r=10) | See [Grid & Coordinate](#Grid) |
+| Grid<T\> | 2D Grid | .grid(1 2 3; 40 50 60), .grid\<Int\>(3 6 9) | See [Grid](#grids-and-coordinates-in-ki) |
+| Coordinate | Grid location | .coordinate(x=2, y=5), .coordinate(c="A", r=10) | See [Grid & Coordinate](#grids-and-coordinates-in-ki) |
 | Quantity\<U\> | An amount in Units | 23cm, -15mL, 2.5m³, 5.5e(-7)m | see [Quantity](#Quantity) |
 | Range\<T\> | Range for comparables | 2..5, 2.0..<3.5, 2.0<.._ | See [Range](#Range) |
 | List\<T\> | Ordered list | [1 2 3], [4, 5, 6], ['a' 'b' 'c'] | Commas optional; See [List](#List) |
