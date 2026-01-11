@@ -3,15 +3,10 @@ plugins:
 - jekyll-remote-theme
 - jemoji
 
-markdown: kramdown
-
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
 title: Kixi Docs
 description: Kixi documentation site.
 logo: "/assets/images/kixi-logo.png"
+
 nav_external_links:
   - title: Kixi-io on GitHub
     url: https://github.com/kixi-io
@@ -29,4 +24,5 @@ nav_external_links:
     url: https://github.com/kixi-io/Ki.Docs/issues
     hide_icon: false
     opens_in_new_tab: true
+
 color_scheme: wider
