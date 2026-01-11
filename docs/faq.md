@@ -4,6 +4,7 @@ nav_order: 3
 ---
 
 # FAQ
+{: .no_toc }
 
 * TOC
 {:toc}
