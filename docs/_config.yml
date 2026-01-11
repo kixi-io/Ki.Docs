@@ -3,6 +3,8 @@ plugins:
 - jekyll-remote-theme
 - jemoji
 
+markdown: GFM
+
 title: Kixi Docs
 description: Kixi documentation site.
 logo: "/assets/images/kixi-logo.png"
