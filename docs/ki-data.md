@@ -21,11 +21,11 @@ optionally typed grids, coordinates, geographic coordinates, and binary data.
 
 **KD Tag**
 
-![Anatomy of a Tag](https://raw.githubusercontent.com/kixi-io/Ki.Docs/refs/heads/master/KD_Diagram.png)
+![Anatomy of a Tag](/assets/images/KD_Diagram.png)
 
 **Examples**
 
-![Anatomy of a Tag](https://raw.githubusercontent.com/kixi-io/Ki.Docs/refs/heads/master/KD_Intellij_Plugin.png)
+![Anatomy of a Tag](/assets/images/KD_Intellij_Plugin.png)
 
 ```
 @Personal // I'm an annotation
