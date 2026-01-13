@@ -1,0 +1,28 @@
+remote_theme: just-the-docs/just-the-docs@v0.11.1
+plugins:
+- jekyll-remote-theme
+- jemoji
+
+title: Kixi Docs
+description: Kixi documentation site.
+logo: "/assets/images/kixi-logo.png"
+
+nav_external_links:
+  - title: Kixi-io on GitHub
+    url: https://github.com/kixi-io
+    hide_icon: false
+    opens_in_new_tab: true
+  - title: KD-JVM Repo
+    url: https://github.com/kixi-io/Ki.KD-JVM
+    hide_icon: false
+    opens_in_new_tab: true
+  - title: Core-JVM Repo
+    url: https://github.com/kixi-io/Ki.Core-JVM
+    hide_icon: false
+    opens_in_new_tab: true
+  - title: Issue Tracker
+    url: https://github.com/kixi-io/Ki.Docs/issues
+    hide_icon: false
+    opens_in_new_tab: true
+
+color_scheme: wider
