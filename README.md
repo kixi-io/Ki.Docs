@@ -35,7 +35,7 @@ Images are placed in the `/docs/assets/images` folder.  They can be referenced i
 ![KD Schema Diagram](/assets/images/KD_Schema_Diagram.png)
 ```
 
-Markdown process is using Kramdown, which is the default for Jekyll.  Kramdown support GitHub Flavored Markdown (GFM) features such as fenced code blocks, tables, and strikethrough, however it is more strict with syntax than GitHub. For example tables must have an empty line above them.  They cannot immdiately start after a line like a header.  The same with code blocks.
+Markdown process is using Kramdown, which is the default for Jekyll.  Kramdown support GitHub Flavored Markdown (GFM) features such as fenced code blocks, tables, and strikethrough, however it is more strict with syntax than GitHub. For example tables must have an empty line above them.  They cannot immediately start after a line like a header.  The same with code blocks.
 
 ### Front matter
 
