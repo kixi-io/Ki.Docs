@@ -16,17 +16,14 @@ The site is built when changes are pushed to `master`.
 
 ## Branches
 
-- `master` - main branch, contains the docs site in `/docs` folder
-- `develop` - development branch for working on docs before merging to `master`
-    - It is not necessary or enforced to use this branch, but can be useful for batching larger changes.
+- `main` - main branch, contains the docs site in `/docs` folder
 
 ### Workflows
 
 Use one of the following workflows to update content.
 
-1. Directly edit files in `master` and commit.  Changes will be published on commit.
-2. Create a feature branch off of `master` then merge the feature branch into `master` via PR.
-3. Merge master into `develop` to update with the most updated changes, then either create a feature branch off `develop` or work directly in `develop`.  When changes are ready, create a PR to merge `develop` into `master` and then merge the PR to publish.
+1. Directly edit files in `main` and commit.  Changes will be published on commit.
+2. Create a feature branch off of `main` then merge the feature branch into `main` via PR.
 
 ## Editing content
 
@@ -38,7 +35,7 @@ Images are placed in the `/docs/assets/images` folder.  They can be referenced i
 ![KD Schema Diagram](/assets/images/KD_Schema_Diagram.png)
 ```
 
-Markdown process is using Kramdown, which is the default for Jekyll.  Kramdown support GitHub Flavored Markdown (GFM) features such as fenced code blocks, tables, and strikethrough, however it is more strict with syntax than GitHub.
+Markdown process is using Kramdown, which is the default for Jekyll.  Kramdown support GitHub Flavored Markdown (GFM) features such as fenced code blocks, tables, and strikethrough, however it is more strict with syntax than GitHub. For example tables must have an empty line above them.  They cannot immdiately start after a line like a header.  The same with code blocks.
 
 ### Front matter
 
