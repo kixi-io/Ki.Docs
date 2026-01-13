@@ -7,7 +7,7 @@ nav_order: 2
 
 ## Introduction
 
-<img align="right" src="https://avatars2.githubusercontent.com/u/60582888?s=88&v=4" alt="Ki Logo">Ki Data (KD) is a
+<img align="right" src="{{ site.baseurl }}/assets/images/kixi-logo.png" alt="Ki Logo" width="88">Ki Data (KD) is a
 simple and concise declarative language used to describe typed values, ranges, lists, maps, trees and
 grids. Although XML is an excellent format for marking up documents and embedding tags in free-form text, it can be
 cumbersome for expressing basic data structures. KD is designed to be readable at a glance. See the [FAQ](faq.md) for a
