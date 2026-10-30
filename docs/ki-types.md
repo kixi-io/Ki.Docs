@@ -296,8 +296,9 @@ A Quantity is an amount of a Unit. KD supports all SI base axes and several popu
 
 You specify them using standard
 [SI symbols](https://physics.nist.gov/cuu/Units/units.html). There is an exception for
-Liter (L). Due to a conflict with the "L" suffix for long literals, liter is written with
-"LT" or "ℓ" (e.g. 5LT or 5ℓ).
+Liter (L). Due to a conflict with the "L" suffix for long literals (`5L` is the Long 5),
+a liter is written with a dot before the L, `5.L` (also `2.5.L`), or with "ℓ" or "LT"
+(e.g. 5.L, 5ℓ or 5LT). A liter always prints as ℓ.
 
 By default Quantities use the high precision Dec type for their value. You can override
 this behavior by adding a :i, :L, :d or :f suffix after the unit type for
@@ -306,7 +307,7 @@ Int, Long, Double or Float.
 #### Canonical Form Examples
 1. 23cm
 2. 51.4m3 or 51.4m³
-3. 97LT or 97ℓ
+3. 97.L, 97ℓ or 97LT
 4. 1000kg or 1_000kg
 5. 142.24km:d # This forces the value to be stored as a Double rather than a Dec
 

@@ -1059,8 +1059,9 @@ A Quantity is an amount of a Unit. KD supports all SI base axes and several popu
 
 You specify them using standard
 [SI symbols](https://physics.nist.gov/cuu/Units/units.html). There is an exception for
-Liter (L). Due to a conflict with the "L" suffix for long literals, liter is written with
-"LT", "ℓ", or "mL"/"mℓ" for milliliters (e.g. 5LT, 5ℓ, 500mL).
+Liter (L). Due to a conflict with the "L" suffix for long literals (`5L` is the Long 5),
+a liter is written with a dot before the L, `5.L` (also `2.5.L`), or with "ℓ" or "LT"
+(e.g. 5.L, 5ℓ, 5LT); "mL"/"mℓ" for milliliters (e.g. 500mL). A liter always prints as ℓ.
 
 By default Quantities use the high precision Dec type for their value. You can override
 this behavior by adding a :i, :L, :d or :f suffix after the unit type for
@@ -1072,7 +1073,7 @@ Int, Long, Double or Float.
 | ------- | ----------- |
 | 23cm | 23 centimeters (Dec) |
 | 51.4m³ or 51.4m3 | 51.4 cubic meters |
-| 97ℓ or 97LT | 97 liters |
+| 97.L, 97ℓ or 97LT | 97 liters |
 | 1000kg or 1_000kg | 1000 kilograms |
 | 142.24km:d | 142.24 kilometers as Double |
 | 500mℓ or 500mL | 500 milliliters |
@@ -1147,7 +1148,7 @@ Both styles can be combined with type specifiers:
 | m³, m3 | cubic meter | 1 (base) |
 | km³, km3 | cubic kilometer | 10⁹ m³ |
 | mℓ, mL | milliliter | 10⁻⁶ m³ |
-| ℓ, LT | liter | 10⁻³ m³ |
+| ℓ, .L (after the number: 5.L), LT | liter | 10⁻³ m³ |
 
 **Mass Units**
 
