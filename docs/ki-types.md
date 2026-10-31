@@ -298,7 +298,8 @@ You specify them using standard
 [SI symbols](https://physics.nist.gov/cuu/Units/units.html). There is an exception for
 Liter (L). Due to a conflict with the "L" suffix for long literals (`5L` is the Long 5),
 a liter is written with a dot before the L, `5.L` (also `2.5.L`), or with "ℓ" or "LT"
-(e.g. 5.L, 5ℓ or 5LT). A liter always prints as ℓ.
+(e.g. 5.L, 5ℓ or 5LT). A liter always prints as ℓ. A unit named on its own, with no
+number before it, may be a plain "L" (`Unit.parse("L")`, `500mL as L` in KS).
 
 By default Quantities use the high precision Dec type for their value. You can override
 this behavior by adding a :i, :L, :d or :f suffix after the unit type for

@@ -1062,6 +1062,8 @@ You specify them using standard
 Liter (L). Due to a conflict with the "L" suffix for long literals (`5L` is the Long 5),
 a liter is written with a dot before the L, `5.L` (also `2.5.L`), or with "ℓ" or "LT"
 (e.g. 5.L, 5ℓ, 5LT); "mL"/"mℓ" for milliliters (e.g. 500mL). A liter always prints as ℓ.
+A unit named on its own, with no number before it, may be a plain "L": a conversion
+target (`500mL as L` in KS) or a schema's `unit=L`.
 
 By default Quantities use the high precision Dec type for their value. You can override
 this behavior by adding a :i, :L, :d or :f suffix after the unit type for
